@@ -64,8 +64,7 @@ class OpenStackDriver(AbstractSystemsDriver):
         cls._vm = None
         cls._boot_order_changed = {}
         cls._server_unrescued = {}
-        cls._pxe_image = kwargs["pxe_image"]
-
+        cls._pxe_image = cls._get_image_info(cls,kwargs["pxe_image"]).id
         return cls
 
     def _get_instance(self, identity):
